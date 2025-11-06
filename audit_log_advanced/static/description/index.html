@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Audit Log - Track All Changes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 15px 0;
+            font-size: 42px;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 0;
+            font-size: 20px;
+            opacity: 0.95;
+        }
+        .section {
+            padding: 40px;
+        }
+        .section h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin: 0 0 20px 0;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .feature-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .feature-box h3 {
+            color: #667eea;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .feature-box p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .screenshot {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        .price-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .price-box h2 {
+            color: white;
+            border: none;
+            margin: 0 0 15px 0;
+        }
+        .price {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .price span {
+            font-size: 32px;
+        }
+        .use-case {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        .use-case h3 {
+            margin: 0 0 10px 0;
+            color: #667eea;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #218838;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>🔍 Advanced Audit Log</h1>
+            <p>Track Every Action in Your Odoo System</p>
+            <div style="margin-top: 20px;">
+                <span class="badge">Odoo 18.0</span>
+                <span class="badge">Professional</span>
+                <span class="badge">Compliance Ready</span>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="section">
+            <h2>📋 Overview</h2>
+            <p style="font-size: 18px; line-height: 1.8;">
+                A powerful, flexible, and easy-to-use <strong>audit logging system</strong> that helps you maintain
+                complete transparency and compliance by tracking all changes, messages, and attachments across your Odoo database.
+            </p>
+            <p style="font-size: 16px; margin-top: 15px;">
+                Perfect for financial institutions, healthcare providers, government organizations, and any business
+                requiring complete audit trails for compliance, security, or accountability.
+            </p>
+        </div>
+
+        <!-- Key Features -->
+        <div class="section" style="background: #fafafa;">
+            <h2>✨ Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="icon">⚙️</div>
+                    <h3>Configurable Tracking</h3>
+                    <p>Enable tracking for any model through simple UI configuration - no coding required!</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">📝</div>
+                    <h3>Complete Action Tracking</h3>
+                    <p>Track Create, Update, and Delete operations with full detail</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">🔍</div>
+                    <h3>Field-Level Tracking</h3>
+                    <p>Monitor specific fields or all fields per model with old → new value comparison</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">💬</div>
+                    <h3>Message Tracking</h3>
+                    <p>Log all chatter messages, comments, and communications</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">📎</div>
+                    <h3>Attachment Tracking</h3>
+                    <p>Track file uploads and downloads with complete metadata</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">👤</div>
+                    <h3>User Activity Monitoring</h3>
+                    <p>See who did what and when with precise timestamps</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">🔎</div>
+                    <h3>Advanced Filtering</h3>
+                    <p>Filter by date, user, action type, model, and more</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">✅</div>
+                    <h3>Compliance Ready</h3>
+                    <p>Perfect for audit requirements and regulatory compliance (ISO, SOX, GDPR)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What You Can Track -->
+        <div class="section">
+            <h2>📊 What You Can Track</h2>
+            <ul>
+                <li><strong>Record Creation:</strong> Log all initial values when records are created</li>
+                <li><strong>Field Changes:</strong> Track old → new value comparison for any field</li>
+                <li><strong>Record Deletion:</strong> Capture final values before records are deleted</li>
+                <li><strong>Chatter Messages:</strong> Log comments, notes, and emails</li>
+                <li><strong>File Attachments:</strong> Track file uploads with complete metadata</li>
+                <li><strong>User Information:</strong> Know exactly who made each change</li>
+                <li><strong>Timestamps:</strong> Precise date and time for every action</li>
+                <li><strong>Context Information:</strong> Company and Operating Unit details</li>
+            </ul>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="section" style="background: #fafafa;">
+            <h2>💼 Perfect For</h2>
+
+            <div class="use-case">
+                <h3>📊 Finance & Accounting</h3>
+                <p>Track all changes to invoices, payments, journal entries, bank reconciliations, and financial reports for audit compliance.</p>
+            </div>
+
+            <div class="use-case">
+                <h3>👥 Human Resources</h3>
+                <p>Monitor employee record changes, salary modifications, contract updates, and sensitive HR operations.</p>
+            </div>
+
+            <div class="use-case">
+                <h3>📦 Inventory & Logistics</h3>
+                <p>Log stock movements, transfer approvals, quantity adjustments, and warehouse operations.</p>
+            </div>
+
+            <div class="use-case">
+                <h3>💼 Sales & CRM</h3>
+                <p>Track quotation changes, order modifications, delivery confirmations, and customer communications.</p>
+            </div>
+
+            <div class="use-case">
+                <h3>🔐 Security & Compliance</h3>
+                <p>Maintain complete audit trail for security compliance, regulatory requirements, and internal audits.</p>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="section">
+            <h2>🚀 How It Works</h2>
+            <ol style="font-size: 16px; line-height: 2;">
+                <li><strong>Install the module</strong> from Odoo Apps</li>
+                <li><strong>Go to Audit Logs → Configuration</strong></li>
+                <li><strong>Select models</strong> you want to track</li>
+                <li><strong>Choose which actions</strong> to track (Create/Write/Delete/Messages/Attachments)</li>
+                <li><strong>Optionally select specific fields</strong> to monitor</li>
+                <li><strong>Done!</strong> All changes are automatically logged</li>
+            </ol>
+
+            <div class="highlight">
+                <strong>⚡ No Technical Knowledge Required!</strong><br>
+                Everything is configured through an intuitive user interface. No coding, no SQL, no complications.
+            </div>
+        </div>
+
+        <!-- Demo Section -->
+        <div class="section" style="background: #fafafa;">
+            <h2>🎬 See It In Action</h2>
+            <p style="font-size: 18px; margin-bottom: 25px; text-align: center;">
+                Try our <strong>live demo</strong> to see how the Advanced Audit Log module works!
+            </p>
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://demo.thelight.tech/audit_log" class="cta-button" style="background: #667eea;">
+                    🚀 Try Live Demo
+                </a>
+                <p style="margin-top: 15px; color: #666;">
+                    No installation required • Full features available • Test data included
+                </p>
+            </div>
+        </div>
+
+        <!-- Technical Highlights -->
+        <div class="section">
+            <h2>⚙️ Technical Highlights</h2>
+            <ul>
+                <li>✅ Lightweight and optimized for performance</li>
+                <li>✅ Automatic tracking through Python inheritance</li>
+                <li>✅ Configurable per model without code changes</li>
+                <li>✅ Clean and intuitive interface</li>
+                <li>✅ Easy integration with existing Odoo installations</li>
+                <li>✅ No database structure modifications required</li>
+                <li>✅ Compatible with Odoo 18.0</li>
+                <li>✅ LGPL-3 License</li>
+            </ul>
+        </div>
+
+        <!-- Pricing -->
+        <div class="section">
+            <div class="price-box">
+                <h2>💰 Special Launch Price</h2>
+                <div class="price"><span>$</span>30</div>
+                <p style="font-size: 18px; margin: 0;">One-time payment • Lifetime updates • Professional support</p>
+                <a href="#" class="cta-button" style="display: inline-block; margin-top: 25px;">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="section" style="background: #fafafa;">
+            <h2>🎯 Support & Documentation</h2>
+            <ul style="font-size: 16px;">
+                <li>📚 <strong>Comprehensive user guide</strong> included with the module</li>
+                <li>🎥 <strong>Video tutorials</strong> available on our website</li>
+                <li>💬 <strong>Professional support</strong> via email: support@thelight.tech</li>
+                <li>🔄 <strong>Regular updates</strong> and improvements</li>
+                <li>🐛 <strong>Bug fixes</strong> and feature requests handled promptly</li>
+            </ul>
+        </div>
+
+        <!-- Installation -->
+        <div class="section">
+            <h2>📦 Installation</h2>
+            <ol style="font-size: 16px; line-height: 2;">
+                <li>Purchase and download the module</li>
+                <li>Upload to your Odoo instance</li>
+                <li>Update the app list in Odoo</li>
+                <li>Install the module from Apps menu</li>
+                <li>Start configuring your audit tracking!</li>
+            </ol>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="section" style="background: #fafafa;">
+            <h2>⭐ Why Choose Advanced Audit Log?</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h3>✅ Easy to Use</h3>
+                    <p>No technical knowledge required - configure everything through simple UI</p>
+                </div>
+                <div class="feature-box">
+                    <h3>⚡ High Performance</h3>
+                    <p>Optimized code that won't slow down your Odoo system</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🔒 Secure & Reliable</h3>
+                    <p>Enterprise-grade security for your sensitive audit data</p>
+                </div>
+                <div class="feature-box">
+                    <h3>💼 Professional Support</h3>
+                    <p>Get help when you need it from experienced Odoo developers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3 style="margin: 0 0 15px 0;">Built with ❤️ by The Light</h3>
+            <p style="margin: 0; opacity: 0.9;">Professional Odoo Solutions | support@thelight.tech</p>
+            <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.7;">
+                © 2025 The Light. All rights reserved. | License: LGPL-3
+            </p>
+        </div>
+    </div>
+</body>
+</html>

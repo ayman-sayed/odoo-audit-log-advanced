@@ -1,0 +1,19 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="256" height="256" fill="url(#grad)" rx="30"/>
+
+  <!-- Magnifying Glass -->
+  <circle cx="110" cy="110" r="50" fill="none" stroke="white" stroke-width="12"/>
+  <line x1="145" y1="145" x2="185" y2="185" stroke="white" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Checkmark inside magnifying glass -->
+  <polyline points="85,110 100,125 135,90" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

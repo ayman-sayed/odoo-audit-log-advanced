@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="audit_config_list_view" model="ir.ui.view">
+        <field name="name">audit.log.config.list</field>
+        <field name="model">audit.log.config</field>
+        <field name="arch" type="xml">
+            <list string="">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="model_ids" widget="many2many_tags"/>
+
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="audit_config_form_view" model="ir.ui.view">
+        <field name="name">audit.log.config.form</field>
+        <field name="model">audit.log.config</field>
+        <field name="arch" type="xml">
+            <form string="Audit Configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(audit_log_action)d"
+                                type="action"
+                                string="View All Logs"
+                                class="oe_stat_button"
+                                icon="fa-history"/>
+                    </div>
+
+                    <widget name="web_ribbon" title="Inactive" bg_color="text-bg-danger" invisible="active"/>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+
+                    <group string="Select Models to Track">
+                        <field name="model_ids" widget="many2many_tags" nolabel="1"
+                               placeholder="Select models to track..."/>
+                    </group>
+
+                    <notebook>
+                        <page string="Help">
+                            <div class="alert alert-info" role="alert">
+                                <h4>How to Use:</h4>
+                                <ol>
+                                    <li>Select the models you want to track</li>
+                                    <li>All changes will be logged automatically</li>
+                                    <li>View logs by clicking "View All Logs" button</li>
+                                </ol>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="audit_config_action" model="ir.actions.act_window">
+        <field name="name">Audit Configuration</field>
+        <field name="res_model">audit.log.config</field>
+        <field name="view_mode">list,form</field>
+<!--        <field name="target">inline</field>-->
+    </record>
+
+
+    <!-- Menu Item -->
+    <menuitem id="audit_log_configuration_menu"
+              name="Configuration"
+              parent="audit_log_menu_root"
+              action="audit_config_action"
+              sequence="50"/>
+
+</odoo>

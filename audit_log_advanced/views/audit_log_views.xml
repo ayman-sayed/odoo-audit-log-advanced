@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="audit_log_list_view" model="ir.ui.view">
+        <field name="name">audit.log.list</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <list string="Audit Logs" default_order="action_date desc" create="false" edit="false" delete="false">
+                <field name="action_date"/>
+                <field name="model_description"/>
+                <field name="record_name"/>
+                <field name="action_type"/>
+                <field name="user_name"/>
+                <field name="field_description"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="attachment_id" optional="show"/>
+                <field name="operating_unit_id" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="audit_log_form_view" model="ir.ui.view">
+        <field name="name">audit.log.form</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <form string="Audit Log" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Record Information">
+                            <field name="model_name"/>
+                            <field name="model_description"/>
+                            <field name="record_id"/>
+                            <field name="record_name"/>
+                        </group>
+                        <group string="Action Information">
+                            <field name="action_type"/>
+                            <field name="action_date"/>
+                            <field name="user_id"/>
+                            <field name="user_name"/>
+                        </group>
+                    </group>
+
+                    <group string="Field Changes" invisible="action_type not in ['write']">
+                        <group>
+                            <field name="field_name"/>
+                            <field name="field_description"/>
+                        </group>
+                        <group>
+                            <field name="old_value"/>
+                            <field name="new_value"/>
+                        </group>
+                    </group>
+
+                    <group string="Message Details" invisible="action_type != 'message'">
+                        <field name="message_type"/>
+                        <field name="message_body" widget="html"/>
+                    </group>
+
+                    <group string="Attachment Details" invisible="action_type != 'attachment'">
+                        <field name="attachment_name"/>
+                        <field name="attachment_mimetype"/>
+                        <field name="attachment_id" invisible="1"/>
+                        <field name="attachment_url" widget="url" string="Download Attachment"/>
+                    </group>
+
+                    <group>
+                        <field name="action_description" widget="text"/>
+                    </group>
+
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="operating_unit_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="audit_log_search_view" model="ir.ui.view">
+        <field name="name">audit.log.search</field>
+        <field name="model">audit.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Audit Logs">
+                <field name="model_name"/>
+                <field name="record_name"/>
+                <field name="user_id"/>
+                <field name="action_type"/>
+                <field name="field_name"/>
+                <field name="action_description"/>
+
+<!--                <filter string="Today" name="today" date="action_date" default_period="today"/>-->
+<!--                <filter string="This Week" name="this_week" date="action_date" default_period="this_week"/>-->
+<!--                <filter string="This Month" name="this_month" date="action_date" default_period="this_month"/>-->
+
+                <separator/>
+                <filter string="Create Actions" name="create_actions" domain="[('action_type','=','create')]"/>
+                <filter string="Update Actions" name="update_actions" domain="[('action_type','=','write')]"/>
+                <filter string="Delete Actions" name="delete_actions" domain="[('action_type','=','unlink')]"/>
+                <filter string="Messages" name="messages" domain="[('action_type','=','message')]"/>
+                <filter string="Attachments" name="attachments" domain="[('action_type','=','attachment')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Model" name="group_model" context="{'group_by':'model_name'}"/>
+                    <filter string="Action Type" name="group_action" context="{'group_by':'action_type'}"/>
+                    <filter string="User" name="group_user" context="{'group_by':'user_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by':'action_date:day'}"/>
+                    <filter string="Operating Unit" name="group_operating_unit" context="{'group_by':'operating_unit_id'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="audit_log_action" model="ir.actions.act_window">
+        <field name="name">Audit Logs</field>
+        <field name="res_model">audit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="audit_log_search_view"/>
+<!--        <field name="context">{'search_default_today': 1}</field>-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No audit logs found
+            </p>
+            <p>
+                Audit logs will appear when actions are performed on tracked models.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="audit_log_menu_root"
+        name="Audit Logs"
+        sequence="100"/>
+
+    <menuitem id="audit_log_menu"
+        name="Audit Logs"
+        parent="audit_log_menu_root"
+        action="audit_log_action"
+        sequence="10"/>
+
+</odoo>

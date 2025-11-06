@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+<!--        &lt;!&ndash; Default Configuration &ndash;&gt;-->
+<!--        <record id="default_audit_config" model="audit.log.config">-->
+<!--            <field name="name">Default Audit Configuration</field>-->
+<!--            <field name="active" eval="True"/>-->
+<!--            <field name="model_ids" eval="[(4, ref('mony_transfer.model_location_location')), (4, ref('mony_transfer.model_transaction_deposit')), (4, ref('mony_transfer.model_transaction_withdrawal'))]"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

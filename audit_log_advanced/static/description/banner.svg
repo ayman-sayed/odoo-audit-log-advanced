@@ -1,0 +1,63 @@
+<svg width="1200" height="628" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="628" fill="url(#bgGrad)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="80" fill="white" opacity="0.1"/>
+  <circle cx="1100" cy="528" r="100" fill="white" opacity="0.1"/>
+  <circle cx="200" cy="500" r="60" fill="white" opacity="0.08"/>
+
+  <!-- Main Icon (Left) -->
+  <g transform="translate(100, 200)">
+    <!-- Magnifying Glass -->
+    <circle cx="100" cy="100" r="70" fill="none" stroke="white" stroke-width="16"/>
+    <line x1="155" y1="155" x2="210" y2="210" stroke="white" stroke-width="16" stroke-linecap="round"/>
+    <!-- Checkmark -->
+    <polyline points="70,100 90,120 130,80" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Text Content (Right) -->
+  <text x="450" y="250" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white">
+    Advanced Audit Log
+  </text>
+  <text x="450" y="330" font-family="Arial, sans-serif" font-size="36" fill="white" opacity="0.95">
+    Track Every Action in Your Odoo
+  </text>
+
+  <!-- Feature Icons (Bottom) -->
+  <g transform="translate(450, 400)">
+    <!-- Create -->
+    <circle cx="50" cy="50" r="25" fill="white" opacity="0.2"/>
+    <text x="50" y="60" font-size="24" text-anchor="middle" fill="white">✓</text>
+
+    <!-- Update -->
+    <circle cx="150" cy="50" r="25" fill="white" opacity="0.2"/>
+    <text x="150" y="60" font-size="24" text-anchor="middle" fill="white">✏</text>
+
+    <!-- Delete -->
+    <circle cx="250" cy="50" r="25" fill="white" opacity="0.2"/>
+    <text x="250" y="60" font-size="24" text-anchor="middle" fill="white">🗑</text>
+
+    <!-- Messages -->
+    <circle cx="350" cy="50" r="25" fill="white" opacity="0.2"/>
+    <text x="350" y="60" font-size="24" text-anchor="middle" fill="white">💬</text>
+
+    <!-- Attachments -->
+    <circle cx="450" cy="50" r="25" fill="white" opacity="0.2"/>
+    <text x="450" y="60" font-size="24" text-anchor="middle" fill="white">📎</text>
+  </g>
+
+  <!-- Price Badge (Top Right) -->
+  <rect x="1000" y="50" width="150" height="60" rx="10" fill="white" opacity="0.95"/>
+  <text x="1075" y="85" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#667eea">
+    $30
+  </text>
+</svg>
